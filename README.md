@@ -1,4 +1,4 @@
-# Capstone
+# COD Cheater Detector
  
 **Author**: *Nina Vergara*
   
@@ -13,46 +13,66 @@
   
 
 ## Purpose
-The aim of this project is to build a model that detects if a player is utilizing performance enhancing software in Call of Duty. The returned handles labeled as 'cheaters' will then be inspected by game administrators for further action.
+The aim of this project is to build a model that detects if a player is cheating in Call of Duty (COD). Player's are considered cheating if they are playing below their skill level or they are utlizing performance enhancing software. Those that will be labeled as cheaters will then be inspected by game administrators for further action.
  
 ## Data
-Player handles were scraped from public and globally ranked Call of Duty Leaderboards found on https://codstats.net/leaderboards/. Player handles from the front, middle, and end of the leaderboards were collected. General statistics and recent match data were obtained for each player. 
+Player handles were scraped from public and globally ranked Call of Duty Leaderboards found on https://codstats.net/leaderboards/. Player handles from the front, middle, and end of the leaderboards were collected. General statistics and recent match data were obtained for each player. More than 60,000 records were collected.
    
 ## Methods
-Binarized labels were assigned to each player based on their statistics. If a player was above 3.5 standard deviations above all other players in their ranke in three or more statistics, they were labeled as using performance enhancing software. The data was then over and under sampled to ensure proper class balances. 
+### Hacker Detection
+#### Software Descriptions
+
+Two types of performancing enhancing software was considered for this project: Aiming-bots and 'fluid wall' programs. Aiming bots automatically lock weapon sites onto other players. This would dramatically increase the precision of a player's shot. This modification would also simulate a fast reaction time, allowing a player to have a substantially larger number of hits within a short amount of time. Fluid wall programs enable an individual to see player locations through walls and buildings. These programs can also change the color of oppenent tags to indicate if the'yre within shooting distance. This allows a competitive advantage by enabling one to plan and evade ambushes, as well as increasing the accuracy of shots.
+
+#### Hacker Labeling Method
+
+In theory, hackers should outshine other players in the following categories:
+* Number of Headshots Per Match
+* Match Accuracy
+* Number of Hits per Match
+* Time Alive per Match
+
+If a player scored 3.5 standard deviations above all other players in 3 of the above categories, an individual was labeled a hacker. 3.5 is a standard threshold for detecting outliers
+
+### Smurf Detection
+#### Smurf Description
+
+A smurf is a seasoned player that disguises themselves as a novice in order to verse others below their skill level. 
+
+#### Smurf Detection
+
+In order to detect a smurf, an individual's play level needs to be compared to their account level. To determine an individuals play level, characteristics that are important in COD's Skill based Match Making (SMM) system, as determined by ~insert link~, were scaled and summed for each player to create a skill score. 
+
+If a players kill score was in the top 25th percentile, their play level was 'above average', if a player fell between the 25th and 75th percentile, their play level was 'average', and if players fell below the 75th percentile,  their play level was 'below average'.
+
+A low account level player is one that has a COD rank below 55 (out of 155). If an individual has a low account level, but has an 'above average' play level, they were labeled a smurf.
     
 ## EDA Results Notable Features
-### General Statistics
+### Hacker Results
+#### Match Performance
+![image](https://github.com/ninavergara605/capstone/blob/3cf2ea18b1f74d3d219f9805eb5592585d4531ac/images/hacker_Match%20Performance.png)
 
-#### KDA Ratio vs Average Score Per Game
--KDA and Average Score per Game pic-
+#### Overall Performance
+![image](https://github.com/ninavergara605/capstone/blob/3cf2ea18b1f74d3d219f9805eb5592585d4531ac/images/hacker_Overall%20Performance.png)
 
-Outshine all other players in KDA Ratio and Score per Game
+### Smurf Results
+#### Match Headshot Count
+![image](https://github.com/ninavergara605/capstone/blob/3cf2ea18b1f74d3d219f9805eb5592585d4531ac/images/smurf_match_headshot_count.png)
 
-#### Percentage of Wins vs Average Lifetime
--Percentage of Wins vs Average Lifetime pic-
+#### Score Per Minute
+![image](https://github.com/ninavergara605/capstone/blob/3cf2ea18b1f74d3d219f9805eb5592585d4531ac/images/smurf_match_score_per_minute.png)
 
-Surprisingly, cheaters don't have a longer than average lifetime span when compared to other players. They are above the norm for percentage of wins    
- 
-### Match Statistics
- 
- #### Shot Count vs Accuracy
- -Shot Count vs Accuracy pic -
- 
- Preformance Enhancing software users still have an unusually high accuracy with the highest shot counts out of all players. This combined with the average lifetime indicates an aggressive play style.
- 
- #### Hit Count vs Headshot Count
-  -Hit Count vs Headshot Count-
-  
-  A higher proportion of hits for PES users are headshots which indicates unusually high ~precision accuracy~
-  
+#### Average Lifetime
+![image](https://github.com/ninavergara605/capstone/blob/3cf2ea18b1f74d3d219f9805eb5592585d4531ac/images/smurf_match_time_played.png)
 
 ## Modeling Results
-  
-    
+Accuracy was chosen as the evaluation metric for modeling. This is to strike a balance between incorrectly banning a professional streamer while correctly banning an individual who is disrupting gameplay for everyone else.
+
+After optimization, the following accuracies were obtained:
+![image](https://github.com/ninavergara605/capstone/blob/1be239f29b95dfe2f92c819e136d3d052fc4c45d/images/final_model_preformance.png)
+
 ## Conclusions
-
-
+The RandomForest model will be chosen as the final model because it has the highest test accuracy. 
     
 ## Repositroy Structure
 ```
@@ -64,6 +84,6 @@ Surprisingly, cheaters don't have a longer than average lifetime span when compa
 ├── modeling_scripts                         
     └── modeling_functions.ipynb
     └── dummy_and_logistic_regression.ipynb                
-    └── result_summary.ipynb                   
+    └── results.ipynb                   
 ├── Presentation.pdf                      
 └── README.md                           
