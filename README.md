@@ -50,25 +50,37 @@ A low account level player is one that has a COD rank below 55 (out of 155). If 
 ## EDA Results Notable Features
 ### Hacker Results
 #### Match Performance
-![image](https://github.com/ninavergara605/capstone/blob/3cf2ea18b1f74d3d219f9805eb5592585d4531ac/images/hacker_Match%20Performance.png)
+![image](https://github.com/ninavergara605/capstone/blob/a2b5375d2fef289c302bf846ebf56f411526c730/images/hacker_match_performance.png)
+
+Even though hackers are alive for the same amount of time as regular players, they shoot at a higher pace and they rack in more headshots.
 
 #### Overall Performance
-![image](https://github.com/ninavergara605/capstone/blob/3cf2ea18b1f74d3d219f9805eb5592585d4531ac/images/hacker_Overall%20Performance.png)
+![image](https://github.com/ninavergara605/capstone/blob/a2b5375d2fef289c302bf846ebf56f411526c730/images/hacker_overall_performance.png)
+
+When taking into account overall performance, there's less discrepency between hackers and non-hackers in accuracy and headshots. This suggests that hackers have a history of underperformance in these areas. It would be interesting to see if KDA Ratio and Avg score characteristics are easily skewed by recent performance enhancements for the hackers.
 
 ### Smurf Results
 #### Match Headshot Count
-![image](https://github.com/ninavergara605/capstone/blob/3cf2ea18b1f74d3d219f9805eb5592585d4531ac/images/smurf_match_headshot_count.png)
+![image](https://github.com/ninavergara605/capstone/blob/a2b5375d2fef289c302bf846ebf56f411526c730/images/smurf_headshot_count.png)
+
+Smurfs had greater precision when compared to players that were labeled as non-cheaters.
 
 #### Score Per Minute
-![image](https://github.com/ninavergara605/capstone/blob/3cf2ea18b1f74d3d219f9805eb5592585d4531ac/images/smurf_match_score_per_minute.png)
+![image](https://github.com/ninavergara605/capstone/blob/a2b5375d2fef289c302bf846ebf56f411526c730/images/smurf_score_per_minute.png)
+
+Smurfs regularly scored more per game than true players.
 
 #### Average Lifetime
-![image](https://github.com/ninavergara605/capstone/blob/3cf2ea18b1f74d3d219f9805eb5592585d4531ac/images/smurf_match_time_played.png)
+![image](https://github.com/ninavergara605/capstone/blob/a2b5375d2fef289c302bf846ebf56f411526c730/images/smurf_Time_alive.png)
+
+Across all COD levels, players who were labeled as smurfs stayed alive for longer periods of time when compared to true players.
 
 ## Modeling Results
 Accuracy was chosen as the evaluation metric for modeling. This is to strike a balance between incorrectly banning a professional streamer while correctly banning an individual who is disrupting gameplay for everyone else.
 
 After optimization, the following accuracies were obtained:
+
+
 ![image](https://github.com/ninavergara605/capstone/blob/1be239f29b95dfe2f92c819e136d3d052fc4c45d/images/final_model_preformance.png)
 
 ## Conclusions
