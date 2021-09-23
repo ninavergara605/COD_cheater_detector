@@ -1,4 +1,4 @@
-![image](https://github.com/ninavergara605/capstone/blob/a2b5375d2fef289c302bf846ebf56f411526c730/images/hacker_overall_performance.png)
+
 # COD Cheater Detector
  
 **Author**: *Nina Vergara*
