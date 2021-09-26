@@ -85,10 +85,11 @@ After optimization, the following accuracies were obtained:
 ![image](https://github.com/ninavergara605/capstone/blob/1be239f29b95dfe2f92c819e136d3d052fc4c45d/images/final_model_preformance.png)
 
 ## Conclusions
-The RandomForest model will be chosen as the final model because it has the highest test accuracy. 
+The RandomForest or Decision tree models offer the highest test accuracy.
     
 ## Repositroy Structure
 ```
+	
 ├── images                                
 ├── data_scripts
     └── web_scraping.ipynb
