@@ -33,7 +33,7 @@ In theory, hackers should outshine other players in the following categories:
 * Number of Hits per Match
 * Time Alive per Match
 
-If a player scored 3.5 standard deviations above all other players in 3 of the above categories, an individual was labeled a hacker. 3.5 is a standard threshold for detecting outliers
+If a player scored 3.5 standard deviations above all other players in 3 of the above categories, an individual was labeled a hacker. 3.5 is a standard threshold for detecting outliers.
 
 ### Smurf Detection
 #### Smurf Description
@@ -44,7 +44,7 @@ A smurf is a seasoned player that disguises themselves as a novice in order to v
 
 In order to detect a smurf, an individual's play level needs to be compared to their account level. To determine an individuals play level, characteristics that are important in COD's Skill based Match Making (SMM) system, as determined by ~insert link~, were scaled and summed for each player to create a skill score. 
 
-If a players kill score was in the top 25th percentile, their play level was 'above average', if a player fell between the 25th and 75th percentile, their play level was 'average', and if players fell below the 75th percentile,  their play level was 'below average'.
+If a players kill score was above the 75th percentile, their play level was 'above average', if a player fell between the 25th and 75th percentile, their play level was 'average', and if players fell below the 25th percentile,  their play level was 'below average'.
 
 A low account level player is one that has a COD rank below 55 (out of 155). If an individual has a low account level, but has an 'above average' play level, they were labeled a smurf.
     
