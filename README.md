@@ -42,7 +42,7 @@ A smurf is a seasoned player that disguises themselves as a novice in order to v
 
 #### Smurf Detection
 
-In order to detect a smurf, an individual's play level needs to be compared to their account level. To determine an individuals play level, characteristics that are important in COD's Skill based Match Making (SMM) system, as determined by ~insert link~, were scaled and summed for each player to create a skill score. 
+In order to detect a smurf, an individual's play level needs to be compared to their account level. To determine an individuals play level, characteristics that are important in COD's Skill based Match Making (SMM) system were scaled and summed for each player to create a skill score. 
 
 If a players kill score was above the 75th percentile, their play level was 'above average', if a player fell between the 25th and 75th percentile, their play level was 'average', and if players fell below the 25th percentile,  their play level was 'below average'.
 
